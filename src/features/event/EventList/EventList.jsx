@@ -6,7 +6,8 @@ class EventList extends Component{
     render(){
         return(
             <>
-            <EventListAttendee/>
+            <EventListItem />
+            <EventListItem />
             <EventListItem />
             </>
         )

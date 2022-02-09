@@ -12,8 +12,6 @@ class App extends Component {
         <NavBar />
         <Container className='main'>
           <EventList />
-          <EventList />
-          <EventList />
         </Container>
       </>
     );
