@@ -3,6 +3,7 @@ import './App.css';
 import EventDashboard from './../../features/event/EventDashboard/EventDashboard';
 import NavBar from '../../features/nav/NavBar/NavBar';
 import { Container } from 'semantic-ui-react';
+import EventList from '../../features/event/EventList/EventList';
 
 class App extends Component {
   render() {
@@ -10,7 +11,9 @@ class App extends Component {
       <>
         <NavBar />
         <Container className='main'>
-          <EventDashboard />
+          <EventList />
+          <EventList />
+          <EventList />
         </Container>
       </>
     );
