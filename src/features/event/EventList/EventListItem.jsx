@@ -9,11 +9,11 @@ class EventListItem extends Component {
         <Segment>
           <Item.Group>
             <Item>
-              <Item.Image size='tiny' circular src='https://randomuser.me/api/portraits/women/27.jpg' />
+              <Item.Image size='tiny' circular src={this.props.event.hostPhotoURL} />
               <Item.Content>
-                <Item.Header as='a'>Event Title</Item.Header>
+                <Item.Header as='a'>{this.props.event.title}</Item.Header>
                 <Item.Description>
-                    Hosted By <a href='/' >hosted by</a>
+                    Hosted By <a href='/' >{this.props.event.hostedBy}</a>
                 </Item.Description>
               </Item.Content>
             </Item>
@@ -28,13 +28,13 @@ class EventListItem extends Component {
         </Segment>
         <Segment secondary>
             <List horizontal>
-                <EventListAttendee />
-                <EventListAttendee />
-                <EventListAttendee />
+                {this.props.event.attendees.map(attendee=>(
+                  <EventListAttendee key={attendee.id} attendee={attendee} />
+                ))}
             </List>
         </Segment>
         <Segment clearing>
-            <span>Event Description - will be updated later</span>
+            <span>{this.props.event.description}</span>
             <Button as='a' color='teal' floated='right' content='View' />
         </Segment>
       </Segment.Group>

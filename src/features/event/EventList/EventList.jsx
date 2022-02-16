@@ -5,9 +5,10 @@ class EventList extends Component{
     render(){
         return(
             <>
-            <EventListItem />
-            <EventListItem />
-            <EventListItem />
+            {this.props.events.map(evt=>(
+                <EventListItem key={evt.id} event={evt}/>
+            ))}
+            
             </>
         )
     }
