@@ -4,16 +4,17 @@ import EventListAttendee from './EventListAttendee';
 
 class EventListItem extends Component {
   render() {
+    const {event} = this.props;
     return (
       <Segment.Group>
         <Segment>
           <Item.Group>
             <Item>
-              <Item.Image size='tiny' circular src={this.props.event.hostPhotoURL} />
+              <Item.Image size='tiny' circular src={event.hostPhotoURL} />
               <Item.Content>
-                <Item.Header as='a'>{this.props.event.title}</Item.Header>
+                <Item.Header as='a'>{event.title}</Item.Header>
                 <Item.Description>
-                    Hosted By <a href='/' >{this.props.event.hostedBy}</a>
+                    Hosted By <a href='/' >{event.hostedBy}</a>
                 </Item.Description>
               </Item.Content>
             </Item>
@@ -22,19 +23,19 @@ class EventListItem extends Component {
 
         <Segment>
             <span>
-                <Icon name='clock' />Date |
-                <Icon name='marker' />time
+                <Icon name='clock' />{event.time}
+                <Icon name='marker' />{event.venue}
             </span>
         </Segment>
         <Segment secondary>
             <List horizontal>
-                {this.props.event.attendees.map(attendee=>(
+                {event.attendees.map(attendee=>(
                   <EventListAttendee key={attendee.id} attendee={attendee} />
                 ))}
             </List>
         </Segment>
         <Segment clearing>
-            <span>{this.props.event.description}</span>
+            <span>{event.description}</span>
             <Button as='a' color='teal' floated='right' content='View' />
         </Segment>
       </Segment.Group>
